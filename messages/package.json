@@ -2,7 +2,9 @@
   "name": "emptybot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "botbuilder": "^3.8.2",
     "botbuilder-azure": "3.0.2",
