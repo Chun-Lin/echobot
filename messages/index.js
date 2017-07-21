@@ -2,7 +2,7 @@
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
 var path = require('path');
-var PythonShell = require('python-shell');
+
 
 var useEmulator = (process.env.NODE_ENV == 'development');
 
@@ -32,13 +32,3 @@ if (useEmulator) {
         default: connector.listen()
     }
 }
-
-var options = {
-    mode: 'json',
-    pythonOptions: ['-u'],
-    scriptPath: './',
-};
-var test = new PythonShell('test.py', options);
-test.on('message', function (message) {
-    console.log(message);
-});
