@@ -16,16 +16,18 @@ var bot = new builder.UniversalBot(connector);
 bot.localePath(path.join(__dirname, './locale'));
 
 bot.dialog('/', function (session) {
-    session.send('You said ' + session.message.text);
+    session.send('I said ' + session.message.text);
 });
 
 if (useEmulator) {
     var restify = require('restify');
     var server = restify.createServer();
-    server.listen(3978, function() {
+    server.listen(3978, function () {
         console.log('test bot endpont at http://localhost:3978/api/messages');
     });
-    server.post('/api/messages', connector.listen());    
+    server.post('/api/messages', connector.listen());
 } else {
-    module.exports = { default: connector.listen() }
+    module.exports = {
+        default: connector.listen()
+    }
 }
